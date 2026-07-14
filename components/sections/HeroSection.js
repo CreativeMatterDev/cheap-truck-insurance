@@ -41,6 +41,29 @@ export default function HeroSection({ data }) {
         backgroundPosition: "center",
       }}
     >
+
+      <pre
+  style={{
+    position: "fixed",
+    top: 0,
+    left: 0,
+    zIndex: 99999,
+    background: "white",
+    color: "black",
+    fontSize: "12px",
+    maxWidth: "500px",
+  }}
+>
+  {JSON.stringify(
+    {
+      backgroundType: data?.backgroundType,
+      videoUrl: data?.videoUrl,
+      backgroundVideo: data?.backgroundVideo,
+    },
+    null,
+    2
+  )}
+</pre>
       {/* Uploaded Video */}
 
       {data?.backgroundType === "video" &&
