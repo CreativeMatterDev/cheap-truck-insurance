@@ -7,13 +7,13 @@ function getEmbedUrl(url) {
   // YouTube
   if (url.includes("youtube.com/watch?v=")) {
     const id = url.split("v=")[1].split("&")[0];
-    return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&showinfo=0&rel=0&playsinline=1`;
+    return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&rel=0&playsinline=1`;
   }
 
   // youtu.be
   if (url.includes("youtu.be/")) {
     const id = url.split("youtu.be/")[1];
-    return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&showinfo=0&rel=0&playsinline=1`;
+    return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&rel=0&playsinline=1`;
   }
 
   // Vimeo
@@ -46,20 +46,18 @@ export default function HeroSection({ data }) {
       {data?.backgroundType === "video" &&
         data?.backgroundVideo?.asset?.url && (
           <video
+            src={data.backgroundVideo.asset.url}
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
+            disablePictureInPicture
             className="absolute inset-0 w-full h-full object-cover"
             style={{
               zIndex: 0,
             }}
-          >
-            <source
-              src={data.backgroundVideo.asset.url}
-              type="video/mp4"
-            />
-          </video>
+          />
         )}
 
       {/* YouTube / Vimeo */}
@@ -69,8 +67,8 @@ export default function HeroSection({ data }) {
           <iframe
             src={getEmbedUrl(data.videoUrl)}
             title="Hero Background Video"
-            allow="autoplay; fullscreen"
-            allowFullScreen
+            allow="autoplay; fullscreen; picture-in-picture"
+            loading="eager"
             frameBorder="0"
             className="absolute inset-0 w-full h-full"
             style={{
