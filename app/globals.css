@@ -685,6 +685,10 @@ body {
   object-fit: cover;
   position: static !important;
 }
+.claims_work_insides_l .btn_gray:hover
+{
+  border: 1px solid #092c30;
+}
 .footer
 {
   background: #092C31;
