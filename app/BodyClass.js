@@ -8,7 +8,7 @@ export default function BodyClass({ children }) {
   return (
     <body
       className={`min-h-full flex flex-col 
-        ${pathname === "/" ? "home" : ""}
+        ${pathname === "" ? "home" : ""}
         ${pathname === "/home" ? "home" : ""}
         ${pathname === "/contact" ? "contact" : ""}
       `}
