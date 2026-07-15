@@ -231,6 +231,10 @@ body {
     border: 1px solid #efc219 !important;
     margin-bottom: 16px;
 }
+.hero_insides .btn_orange:hover
+{
+    border: 1px solid #092c31 !important;
+}
 .telno
 { 
   color: #FFF;
